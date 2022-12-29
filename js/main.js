@@ -2,9 +2,15 @@
 let workList = [];
 const addList = function(){
     let text = document.getElementById("newTask").value;
+    if (text == "") {
+    alert("vui lòng nhập công việc hôm nay !")
+    return}
+    
     workList.push(text)
+    document.getElementById("newTask").innerHTML = "";
     saveLocal ();
     renderWork ();
+    
 }
 // lưu trữ vào local
 function saveLocal (){
@@ -31,6 +37,7 @@ function renderWork (){
         </li>`
         document.getElementById("todo").innerHTML = html;
     } 
+   
 }
 // xóa công việc
 function deleteWork (values){
